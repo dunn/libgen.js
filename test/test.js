@@ -16,10 +16,9 @@ describe('mirrors.js', function(){
   });
 });
 
-
+var latest = require('../lib/latest.js');
 describe('latest.id()', function(){
   it('should return a number over 1282650', function(done){
-    var latest = require('../lib/latest.js');
     latest.id(mirror,function(err, data){
       if (err) return done(err);
       if (!parseInt(data)) {
@@ -29,6 +28,15 @@ describe('latest.id()', function(){
         return done(new Error('Number returned (' +
                               data + ') is too low'));
       }
+      return done(null,data);
+    });
+  });
+});
+
+describe('latest.text()',function(){
+  it('should return a JSON object',function(done){
+    latest.text(mirror,function(err,data){
+      if (err) return done(err);
       return done(null,data);
     });
   });
