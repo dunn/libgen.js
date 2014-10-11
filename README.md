@@ -6,4 +6,3 @@ still super in progress, can't do anything yet
 
 - fetch random book(s)
 - search
-- automatic mirror switching
