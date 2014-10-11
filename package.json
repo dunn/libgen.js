@@ -7,7 +7,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -t 10s"
+    "test": "./node_modules/.bin/mocha -t 20s"
   },
   "keywords": [
     "libgen",

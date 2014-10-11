@@ -41,3 +41,17 @@ describe('latest.text()',function(){
     });
   });
 });
+
+var random = require('../lib/random.js');
+describe('random.text()',function(){
+  it('should return at least one JSON object',function(done){
+    var opts = {
+      count: 'honk',
+      mirror: mirror
+    };
+    random.text(opts,function(err,data){
+      if (err) return done(err);
+      return done(null,data);
+    });
+  });
+});
