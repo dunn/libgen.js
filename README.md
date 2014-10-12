@@ -29,6 +29,7 @@ currently faster:
 ```js
 libgen.mirror(function(err,urlString){
   if (err) return callback(err);
+  console.log(urlString + ' is currently faster');
   return callback(null,urlString);
 });
 ```
@@ -127,7 +128,7 @@ var options = {
 Then pass the object to `libgen.random.text`:
 
 ```js
-libgen.random.text(opts,function(err,data){
+libgen.random.text(options,function(err,data){
   if (err) return(err);
   var n = data.length;
   console.log(n + ' random texts');
