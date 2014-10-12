@@ -1,7 +1,7 @@
 {
   "name": "libgen",
   "version": "0.0.1",
-  "description": "A less-painful way to use the Library Genesis API",
+  "description": "The Library Genesis API (and more) for Node.js",
   "engines": {
     "node": "0.10.x"
   },
