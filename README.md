@@ -9,6 +9,16 @@ with search built on top of it.
 npm install [--save] libgen
 ```
 
+## first, a warning
+
+The Library Genesis maintaners very kindly made a public API that
+doesn't require an API key to use, so don't abuse it or they might
+change that.
+
+In any case, if you make too many requests in a short period of time
+they'll temporarily block your IP address, so go slow for your own
+good as well.
+
 ## usage: choosing a mirror
 
 Queries can be made against either `http://libgen.org` or
