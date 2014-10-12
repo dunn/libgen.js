@@ -11,6 +11,7 @@ describe('mirrors.js', function(){
         return done(new Error('somehow returned an empty string'));
       }
       mirror = string;
+      console.log('using ' + mirror);
       return done();
     });
   });
@@ -52,6 +53,22 @@ describe('random.text()',function(){
     random.text(opts,function(err,data){
       if (err) return done(err);
       return done(null,data);
+    });
+  });
+});
+
+var search = require('../lib/search.js');
+describe('search.js',function(){
+  it('should return an array of 30 JSON objects',function(done){
+    var options = {
+      mirror: mirror,
+      query: 'math',
+      count: 30
+    };
+    search.byString(options,function(err,data){
+      if (err) return done(err);
+      assert.equal(data.length,30);
+      done();
     });
   });
 });
