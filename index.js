@@ -1,6 +1,6 @@
 module.exports = {
-  mirror: require('./lib/mirror'),
-  latest: require('./lib/latest'),
-  random: require('./lib/random'),
-  search: require('./lib/search')
+  mirror: require('./lib/mirrors.js'),
+  latest: require('./lib/latest.js'),
+  random: require('./lib/random.js'),
+  search: require('./lib/search.js')
 };
