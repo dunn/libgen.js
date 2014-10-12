@@ -1,11 +1,11 @@
-var search = require('../lib/search.js');
+var libgen = require('libgen');
 
 var options = {
   mirror: 'http://gen.lib.rus.ec',
   query: 'philosophy of religion',
   count: 5
 };
-search.byString(options,function(err,data){
+libgen.search(options,function(err,data){
   if (err) return console.error(err);
   var n = data.length;
   console.log('top ' + n + ' results for "' +

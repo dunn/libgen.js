@@ -1,9 +1,9 @@
-var random = require('../lib/random.js');
+var libgen = require('libgen');
 var opts = {
   count: 10,
   mirror: 'http://gen.lib.rus.ec'
 };
-random.text(opts,function(err,data){
+libgen.random.text(opts,function(err,data){
   if (err) return(err);
   var n = data.length;
   console.log(n + ' random texts');

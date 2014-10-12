@@ -1,6 +1,6 @@
-var latest = require('../lib/latest.js');
+var libgen = require('libgen');
 
-latest.text('http://gen.lib.rus.ec',function(err,text){
+libgen.latest.text('http://gen.lib.rus.ec',function(err,text){
   if (err) return console.error(err);
   console.log('Last text uploaded to Library Genesis');
   console.log('***********');
