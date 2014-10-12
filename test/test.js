@@ -65,7 +65,7 @@ describe('search.js',function(){
       query: 'math',
       count: 30
     };
-    search.byString(options,function(err,data){
+    search(options,function(err,data){
       if (err) return done(err);
       assert.equal(data.length,30);
       done();
