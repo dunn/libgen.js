@@ -1,6 +1,6 @@
 {
   "name": "libgen",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The Library Genesis API (and more) for Node.js",
   "engines": {
     "node": "0.10.x"
