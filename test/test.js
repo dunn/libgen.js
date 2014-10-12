@@ -4,7 +4,7 @@ var assert = require('assert');
 var mirror;
 describe('mirrors.js', function(){
   it('should return a working mirror base URL', function(done){
-    var getMirror = require('../lib/mirrors.js');
+    var getMirror = require('../lib/mirror.js');
     getMirror(function(err,string){
       if (err) return done(err);
       if (!string){

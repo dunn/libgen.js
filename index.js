@@ -1,5 +1,5 @@
 module.exports = {
-  mirror: require('./lib/mirrors.js'),
+  mirror: require('./lib/mirror.js'),
   latest: require('./lib/latest.js'),
   random: require('./lib/random.js'),
   search: require('./lib/search.js')
