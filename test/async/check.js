@@ -12,7 +12,7 @@ describe('check.js',function(){
       });
     });
     it('should return a 404',function(done){
-      var badJson = require('../404.json');
+      var badJson = require('../json/404.json');
       check.canDownload(badJson,function(err,response){
         if (err) {
           return done();
