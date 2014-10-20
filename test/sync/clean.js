@@ -1,8 +1,7 @@
 var assert = require('assert');
-
-var clean = require('../lib/clean.js');
-var single = require('./single.json');
-var multiple = require('./multiple.json');
+var clean = require('../../lib/clean.js');
+var single = require('../json/single.json');
+var multiple = require('../json/multiple.json');
 describe('clean()',function(){
   describe('single text',function(){
     describe('strip if no Publisher (string and array)',function(){
