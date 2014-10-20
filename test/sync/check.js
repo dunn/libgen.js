@@ -18,5 +18,9 @@ describe('check.js',function(){
       var yearField = check.hasField(single,'Year','1998');
       assert.ok(yearField);
     });
+    it('should return false',function(){
+      var yearField = check.hasField(single,'Year','1990');
+      assert.ok(!yearField);
+    });
   });
 });
