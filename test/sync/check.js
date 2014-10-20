@@ -4,7 +4,7 @@ var check = require('../../lib/check.js');
 var single = require('../json/single.json');
 
 describe('check.js',function(){
-  describe('hasField',function(){
+  describe('hasField()',function(){
     it('should find 25 filled fields',function(){
       var c = 0;
       for (var key in single){
