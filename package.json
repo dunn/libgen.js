@@ -1,13 +1,13 @@
 {
   "name": "libgen",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "The Library Genesis API (and more) for Node.js",
   "engines": {
     "node": "0.10.x"
   },
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -t 20s test/**/"
+    "test": "./node_modules/.bin/mocha -t 30s test/**/"
   },
   "keywords": [
     "libgen",

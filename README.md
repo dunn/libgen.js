@@ -40,9 +40,9 @@ libgen.mirror(function(err,urlString){
 
 The search method takes three options:
 
-- **mirror**—either `http://libgen.org` or `http://gen.lib.rus.ec`
-- **query**—the string to search for
-- **count**—the number of results to return; defaults to 10
+- **mirror**—Either `http://libgen.org` or `http://gen.lib.rus.ec`.
+- **query**—The string to search for.
+- **count**—The number of results to return; defaults to 10.
 
 Pass the options to the function as an object:
 
@@ -111,17 +111,25 @@ text.
 
 ## usage: random texts
 
-This takes two options:
+This has two required options, and an optional third:
 
-- **mirror**—either `http://libgen.org` or `http://gen.lib.rus.ec`
-- **count**—number of texts to return
+- **mirror**—Either `http://libgen.org` or `http://gen.lib.rus.ec`.
+- **count**—The Number of texts to return.
+- **fields**—An array of fields that must be set for each text
+  returned.  The the array can include strings, corresponding to
+  fields that must have *some* setting, or objects with a Key/Value
+  corresponding to the field and the value that field must have
+  (example below).
 
 Put the options in an object:
 
 ```js
 var options = {
   mirror: 'http://libgen.org',
-  count: 5
+  count: 5,
+  fields: ['Title',
+           { Language: 'English' }
+          ]
 };
 ```
 
@@ -131,7 +139,7 @@ Then pass the object to `libgen.random.text`:
 libgen.random.text(options,function(err,data){
   if (err) return(err);
   var n = data.length;
-  console.log(n + ' random texts');
+  console.log(n + ' random English-language texts with titles');
   while (n--){
     console.log('***********');
     console.log('Title: ' + data[n].Title);
@@ -141,6 +149,62 @@ libgen.random.text(options,function(err,data){
                 data[n].MD5.toLowerCase());
   }
 });
+```
+
+## usage: utilities
+
+A handful of utility methods are available to checking and cleaning
+output.
+
+### check.hasField (synchronous)
+
+```js
+var goodText = libgen.utils.check.hasField(json,field[,value]);
+```
+
+- **array**—A LibGen JSON object.
+- **field**—One of the metadata fields.
+- **value** (optional)—the value of the specified metadata field.
+
+If a `value` is given, this method returns `true` just in case the
+specified field of the JSON object is set to `value`.  Otherwise it
+returns true just in case the specified field is set at all.  All
+other cases return `false`.
+
+### check.canDownload (asynchronous)
+
+Given a LibGen JSON object or just an MD5, this method returns the
+download URL of a text just in case it's available:
+
+```js
+var md5 = 'ec1b68f07f01c7e4fb7a8c6af2431cd6';
+libgen.utils.check.canDownload(md5,function(err,url){
+  if (err) {
+    return console.error(err);
+  }
+  console.log('Working link: ' + url);
+  });
+```
+
+### clean.forFields (synchronous)
+
+Given a LibGen JSON object or an array of objects, this method removes
+any that don't have the specified fields and/or field values:
+
+```js
+var cleaned = libgen.utils.clean.forFields(json,fields);
+```
+
+Pass an array of strings and/or objects to `fields`, as in
+`random.text` above.
+
+### clean.dups (synchronous)
+
+Given an array of LibGen JSON objects, this method returns all unique
+elements in the array:
+
+```js
+var uniques = libgen.utils.clean.dups(array);
 ```
 
 ## license
