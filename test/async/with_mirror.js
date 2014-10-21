@@ -18,7 +18,7 @@ describe('mirrors.js', function(){
 });
 
 var latest = require('../../lib/latest.js');
-describe('latest.id()', function(){
+describe('latest.id', function(){
   it('should return a number over 1282650', function(done){
     latest.id(mirror,function(err, data){
       if (err) return done(err);
@@ -34,7 +34,7 @@ describe('latest.id()', function(){
   });
 });
 
-describe('latest.text()',function(){
+describe('latest.text',function(){
   it('should return a JSON object',function(done){
     latest.text(mirror,function(err,data){
       if (err) return done(err);
@@ -44,7 +44,7 @@ describe('latest.text()',function(){
 });
 
 var random = require('../../lib/random.js');
-describe('random.text()',function(){
+describe('random.text',function(){
   it('should return at least one JSON object',function(done){
     var opts = {
       count: 'honk',
