@@ -1,6 +1,6 @@
 {
   "name": "libgen",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "The Library Genesis API (and more) for Node.js",
   "engines": {
     "node": "0.10.x"
@@ -27,6 +27,6 @@
     "request": "^2.45.0"
   },
   "devDependencies": {
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.5"
   }
 }

@@ -153,13 +153,13 @@ libgen.random.text(options,function(err,data){
 
 ## usage: utilities
 
-A handful of utility methods are available to checking and cleaning
+A handful of utility methods are available for checking and cleaning
 output.
 
 ### check.hasField (synchronous)
 
 ```js
-var goodText = libgen.utils.check.hasField(json,field[,value]);
+var isGood = libgen.utils.check.hasField(json,field[,value]);
 ```
 
 - **array**—A LibGen JSON object.
