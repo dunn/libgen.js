@@ -115,8 +115,8 @@ This has two required options, and an optional third:
 
 - **mirror**—Either `http://libgen.org` or `http://gen.lib.rus.ec`.
 - **count**—The Number of texts to return.
-- **fields**—An array of fields that must be set for each text
-  returned.  The the array can include strings, corresponding to
+- **fields** (optional)—An array of fields that must be set for each
+  text returned.  The the array can include strings, corresponding to
   fields that must have *some* setting, or objects with a Key/Value
   corresponding to the field and the value that field must have
   (example below).
