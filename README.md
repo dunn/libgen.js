@@ -63,9 +63,9 @@ The search method has two required options, and a number of optional ones:
     - `filesize`
     - `extension`
     - `def` (default; sorted by relevance)
-- **reverse** (optional)—If `true`, sorts from A–Z or 0–9
+- **reverse** (optional)—If `false`, sorts from A–Z or 0–9
   (depending on whether `sort_by` is a text or number field);
-  when `false` sorts Z–A or 9–0.  Defaults to `true`.
+  when `true` sorts Z–A or 9–0.  Defaults to `false`.
 
 Pass the options to the function as an object:
 
