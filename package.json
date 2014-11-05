@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "async": "0.9.x",
-    "moment": "2.8.x",
     "request": "2.46.x"
   },
   "devDependencies": {
