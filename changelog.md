@@ -1,3 +1,7 @@
+# 0.3.1
+
+- fixed readme regarding how the `reverse` sorting option works
+
 # 0.3.0
 
 - more search options: `search_in`, `sort_by`, `reverse` (sort)
