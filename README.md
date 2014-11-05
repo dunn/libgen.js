@@ -28,9 +28,8 @@ currently faster:
 
 ```js
 libgen.mirror(function(err,urlString){
-  if (err) return callback(err);
-  console.log(urlString + ' is currently faster');
-  return callback(null,urlString);
+  if (err) return console.error(err);
+  return console.log(urlString + ' is currently faster');
 });
 ```
 
@@ -38,11 +37,35 @@ libgen.mirror(function(err,urlString){
 
 ## usage: searching
 
-The search method takes three options:
+The search method has two required options, and a number of optional ones:
 
 - **mirror**—Either `http://libgen.org` or `http://gen.lib.rus.ec`.
 - **query**—The string to search for.
-- **count**—The number of results to return; defaults to 10.
+- **count** (optional)—The number of results to return; defaults to 10.
+- **search_in** (optional)—Restrict your search to one of the
+  following fields:
+    - `title`
+    - `author`
+    - `series`
+    - `periodical`
+    - `publisher`
+    - `year`
+    - `identifier`
+    - `md5`
+    - `extension`
+    - `def` (default; all fields)
+- **sort_by** (optional)—The field by which the results are sorted:
+    - `title`
+    - `publisher`
+    - `year`
+    - `pages`
+    - `language`
+    - `filesize`
+    - `extension`
+    - `def` (default; sorted by relevance)
+- **reverse** (optional)—If true, sorts from A–Z or 0–9
+  (depending on whether `sort_by` is a text or number field);
+  when false sorts Z–A or 9–0.  Defaults to true.
 
 Pass the options to the function as an object:
 
@@ -50,7 +73,9 @@ Pass the options to the function as an object:
 var options = {
   mirror: 'http://libgen.org',
   query: 'cats',
-  count: 5
+  count: 5,
+  sort_by: 'year',
+  reverse: true
 };
 ```
 
@@ -60,8 +85,8 @@ Then do the thing:
 libgen.search(options,function(err,data){
   if (err) return console.error(err);
   var n = data.length;
-  console.log('top ' + n + ' results for "' +
-             options.query + '"');
+  console.log(n + ' most recently published "' +
+             options.query + '" books');
   while (n--){
     console.log('***********');
     console.log('Title: ' + data[n].Title);

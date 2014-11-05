@@ -63,12 +63,25 @@ describe('search.js',function(){
     var options = {
       mirror: mirror,
       query: 'math',
-      count: 30
+      count: 30,
+      search_in: 'series'
     };
     search(options,function(err,data){
       if (err) return done(err);
       assert.equal(data.length,30);
-      done();
+      return done();
+    });
+  });
+  it('should return an array of 10 JSON objects',function(done){
+    var options = {
+      mirror: mirror,
+      query: 'math',
+      count: 0
+    };
+    search(options,function(err,data){
+      if (err) return done(err);
+      assert.equal(data.length,10);
+      return done();
     });
   });
 });

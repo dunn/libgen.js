@@ -11,6 +11,7 @@
   },
   "keywords": [
     "libgen",
+    "library",
     "books",
     "api"
   ],
@@ -21,12 +22,11 @@
     "url": "https://github.com/grumble/libgen.js.git"
   },
   "dependencies": {
-    "async": "^0.9.0",
-    "cheerio": "^0.17.0",
-    "moment": "^2.8.3",
-    "request": "^2.46.0"
+    "async": "0.9.x",
+    "moment": "2.8.x",
+    "request": "2.46.x"
   },
   "devDependencies": {
-    "mocha": "^1.21.5"
+    "mocha": "^1.21.x"
   }
 }
