@@ -1,3 +1,8 @@
+# 0.3.2
+
+- general cleanup
+- removed `moment` dependency
+
 # 0.3.1
 
 - fixed readme regarding how the `reverse` sorting option works
@@ -5,17 +10,17 @@
 # 0.3.0
 
 - more search options: `search_in`, `sort_by`, `reverse` (sort)
-- remove `cheerio` dependency
+- removed `cheerio` dependency
 
 # 0.2.2
 
-- tweak readme
-- bump allowed `request`
+- tweaked README
+- bumped allowed `request` version
 
 # 0.2.1
 
-- clearer readme
-- bump allowed `mocha`
+- clearer README
+- bumped allowed `mocha` version
 
 # 0.2.0
 
