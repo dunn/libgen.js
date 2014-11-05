@@ -209,7 +209,7 @@ libgen.utils.check.canDownload(md5,function(err,url){
   if (err) {
     return console.error(err);
   }
-  console.log('Working link: ' + url);
+  return console.log('Working link: ' + url);
   });
 ```
 
