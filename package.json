@@ -27,6 +27,6 @@
     "request": "2.46.x"
   },
   "devDependencies": {
-    "mocha": "^1.21.x"
+    "mocha": "2.x.x"
   }
 }
