@@ -139,12 +139,14 @@ text.
 This has two required options, and an optional third:
 
 - **mirror**—Either `http://libgen.org` or `http://gen.lib.rus.ec`.
-- **count**—The Number of texts to return.
-- **fields** (optional)—An array of fields that must be set for each
-  text returned.  The the array can include strings, corresponding to
-  fields that must have *some* setting, or objects with a Key/Value
-  corresponding to the field and the value that field must have
-  (example below).
+- **count**—The number of texts to return.
+- **fields** (optional)—An array containing the metadata fields that
+  must be set for each text returned; there are
+  [52 metadata fields](http://megr.im/posts/libgen/#toc_1 "The Library
+  Genesis API (scroll down a bit)"), but some are rarely used.  The
+  array can include strings, corresponding to fields that must have
+  *some* setting, or objects with a Key/Value corresponding to the
+  field and the value that field must have (example below).
 
 Put the options in an object:
 
