@@ -7,6 +7,6 @@ libgen.latest.text('http://gen.lib.rus.ec',function(err,text){
   console.log('Title: ' + text.Title);
   console.log('Author: ' + text.Author);
   console.log('Download: ' +
-              'http://libgen.org/get?md5=' +
+              'http://libgen.org/get.php?md5=' +
               text.MD5.toLowerCase());
 });
