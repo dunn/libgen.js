@@ -1,3 +1,8 @@
+# 0.3.3
+
+- Direct download URLs changed from `http://libgen.org/get?md5=`
+  to `http://libgen.org/get.php?md5=`
+
 # 0.3.2
 
 - general cleanup
