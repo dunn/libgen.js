@@ -1,3 +1,8 @@
+# 0.3.4
+
+- Correctly handle complicated required-fields options
+- treat IDs as strings rather than integers
+
 # 0.3.3
 
 - Direct download URLs changed from `http://libgen.org/get?md5=`
