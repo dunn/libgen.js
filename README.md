@@ -145,8 +145,10 @@ This has two required options, and an optional third:
   [52 metadata fields](http://megr.im/posts/libgen/#toc_1 "The Library
   Genesis API (scroll down a bit)"), but some are rarely used.  The
   array can include strings, corresponding to fields that must have
-  *some* setting, or objects with a Key/Value corresponding to the
-  field and the value that field must have (example below).
+  *some* setting, or objects with Key/Value corresponding to the field
+  and the value that field must have (example below).  Keep in mind
+  that requests that have multiple required fields will take
+  exponentially more time to complete.
 
 Put the options in an object:
 

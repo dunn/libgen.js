@@ -4,15 +4,17 @@ var check = require('../../lib/check.js');
 
 var opts = {
   mirror: 'http://libgen.org',
-  count: 5,
-  fields: ['Year',
-           'Title',
-           { Language: 'English' }
-          ]
+  count: 30,
+  fields: [
+    'Title',
+    { Language: 'English' },
+    { Year: '2000',
+      Extension: 'pdf' }
+  ]
 };
 
 describe('random.text',function(){
-  it('should return exactly 5 texts with Year+Title+English',function(done){
+  it('should return exactly 30 English PDFs from 2000 with Titles',function(done){
     random.text(opts,function(err,data){
       if (err) return done(err);
       var n = data.length;
@@ -20,12 +22,14 @@ describe('random.text',function(){
       assert.equal(n,opts.count,
                    'received wrong # of texts (' + n + ')');
       while (n--){
-        assert.ok(check.hasField(data[n],'Year'),
-                  'text ' + n + ' is missing Year');
         assert.ok(check.hasField(data[n],'Title'),
                  'text ' + n + ' is missing Title');
+        assert.ok(check.hasField(data[n],'Year', '2000'),
+                  'text ' + n + ' has Year ' + data[n].Year);
         assert.ok(check.hasField(data[n],'Language','English'),
                  'text ' + n + ' is in ' + data[n].Language);
+        assert.ok(check.hasField(data[n],'Extension','pdf'),
+                 'text ' + n + ' is a ' + data[n].Extension);
       }
       return done();
     });
