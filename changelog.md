@@ -1,3 +1,8 @@
+# 0.3.5
+
+- deactivate http://libgen.org mirror (see <https://github.com/grumble/libgen.js/issues/2>)
+- search method checks for minimum query length (4 characters)
+
 # 0.3.4
 
 - Correctly handle complicated required-fields options
