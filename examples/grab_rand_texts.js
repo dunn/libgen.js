@@ -12,7 +12,7 @@ libgen.random.text(opts,function(err,data){
     console.log('Title: ' + data[n].Title);
     console.log('Author: ' + data[n].Author);
     console.log('Download: ' +
-                'http://libgen.org/get.php?md5=' +
+                'http://gen.lib.rus.ec/book/index.php?md5=' +
                 data[n].MD5.toLowerCase());
   }
 });

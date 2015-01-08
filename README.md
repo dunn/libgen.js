@@ -1,6 +1,6 @@
 # `libgen`
 
-This is a wrapper for the [Library Genesis](http://libgen.org) API,
+This is a wrapper for the [Library Genesis](http://gen.lib.rus.ec) API,
 with search built on top of it.
 
 ## installation
@@ -21,10 +21,11 @@ good as well.
 
 ## usage: choosing a mirror
 
-Queries can be made against either `http://libgen.org` or
-`http://gen.lib.rus.ec`.  You can either manually select one and pass
-it to a method, or use `libgen.mirror()` to select the one that's
-currently faster:
+[As of now](https://github.com/grumble/libgen.js/issues/2) requests
+can only be made to <http://gen.lib.rus.ec>, so this method will make
+a test request and return `http://gen.lib.rus.ec` if it is available.
+When mirrors are available again, this method will test them all and
+return the one that is fastest.
 
 ```js
 libgen.mirror(function(err,urlString){
@@ -33,13 +34,11 @@ libgen.mirror(function(err,urlString){
 });
 ```
 
-(This might take a few seconds itself, though.)
-
 ## usage: searching
 
 The search method has two required options, and a number of optional ones:
 
-- **mirror**—Either `http://libgen.org` or `http://gen.lib.rus.ec`.
+- **mirror**—Currently must be `http://gen.lib.rus.ec`.
 - **query**—The string to search for.
 - **count** (optional)—The number of results to return; defaults to 10.
 - **search_in** (optional)—Restrict your search to one of the
@@ -71,7 +70,7 @@ Pass the options to the function as an object:
 
 ```js
 var options = {
-  mirror: 'http://libgen.org',
+  mirror: 'http://gen.lib.rus.ec',
   query: 'cats',
   count: 5,
   sort_by: 'year',
@@ -92,7 +91,7 @@ libgen.search(options,function(err,data){
     console.log('Title: ' + data[n].Title);
     console.log('Author: ' + data[n].Author);
     console.log('Download: ' +
-                'http://libgen.org/get.php?md5=' +
+                'http://gen.lib.rus.ec/book/index.php?md5=' +
                 data[n].MD5.toLowerCase());
   }
 });
@@ -114,7 +113,7 @@ same full JSON objects.
 
 ## usage: latest upload
 
-This method just requires a URL string—either `http://libgen.org` or
+This method just requires a URL string—for now, it only accepts
 `http://gen.lib.rus.ec`.
 
 ```js
@@ -125,7 +124,7 @@ libgen.latest.text('http://gen.lib.rus.ec',function(err,text){
   console.log('Title: ' + text.Title);
   console.log('Author: ' + text.Author);
   console.log('Download: ' +
-              'http://libgen.org/get.php?md5=' +
+              'http://gen.lib.rus.ec/book/index.php?md5=' +
               text.MD5.toLowerCase());
 });
 ```
@@ -138,7 +137,7 @@ text.
 
 This has two required options, and an optional third:
 
-- **mirror**—Either `http://libgen.org` or `http://gen.lib.rus.ec`.
+- **mirror**—Currently must be `http://gen.lib.rus.ec`.
 - **count**—The number of texts to return.
 - **fields** (optional)—An array containing the metadata fields that
   must be set for each text returned; there are
@@ -154,7 +153,7 @@ Put the options in an object:
 
 ```js
 var options = {
-  mirror: 'http://libgen.org',
+  mirror: 'http://gen.lib.rus.ec',
   count: 5,
   fields: ['Title',
            { Language: 'English' }
@@ -174,7 +173,7 @@ libgen.random.text(options,function(err,data){
     console.log('Title: ' + data[n].Title);
     console.log('Author: ' + data[n].Author);
     console.log('Download: ' +
-                'http://libgen.org/get.php?md5=' +
+                'http://gen.lib.rus.ec/book/index.php?md5=' +
                 data[n].MD5.toLowerCase());
   }
 });
