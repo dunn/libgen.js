@@ -21,16 +21,14 @@ good as well.
 
 ## usage: choosing a mirror
 
-[As of now](https://github.com/grumble/libgen.js/issues/2) requests
-can only be made to <http://gen.lib.rus.ec>, so this method will make
-a test request and return `http://gen.lib.rus.ec` if it is available.
-When mirrors are available again, this method will test them all and
-return the one that is fastest.
+This method tests the mirrors in `available_mirrors.js` (currently
+`http://libgen.in` and `http://gen.lib.rus.ec`) and returns the one
+that is fastest.
 
 ```js
 libgen.mirror(function(err,urlString){
   if (err) return console.error(err);
-  return console.log(urlString + ' is currently faster');
+  return console.log(urlString + ' is currently fastest');
 });
 ```
 
@@ -38,7 +36,7 @@ libgen.mirror(function(err,urlString){
 
 The search method has two required options, and a number of optional ones:
 
-- **mirror**—Currently must be `http://gen.lib.rus.ec`.
+- **mirror**—One of the mirrors in `available_mirrors.js`
 - **query**—The string to search for.
 - **count** (optional)—The number of results to return; defaults to 10.
 - **search_in** (optional)—Restrict your search to one of the
@@ -113,8 +111,8 @@ same full JSON objects.
 
 ## usage: latest upload
 
-This method just requires a URL string—for now, it only accepts
-`http://gen.lib.rus.ec`.
+This method requires a URL string—one of the mirrors in
+`available_mirrors.js`
 
 ```js
 libgen.latest.text('http://gen.lib.rus.ec',function(err,text){
@@ -137,7 +135,7 @@ text.
 
 This has two required options, and an optional third:
 
-- **mirror**—Currently must be `http://gen.lib.rus.ec`.
+- **mirror**—One of the mirrors in `available_mirrors.js`
 - **count**—The number of texts to return.
 - **fields** (optional)—An array containing the metadata fields that
   must be set for each text returned; there are
@@ -202,7 +200,8 @@ other cases return `false`.
 ### check.canDownload (asynchronous)
 
 Given a LibGen JSON object or just an MD5, this method returns the
-download URL of a text just in case it's available:
+download URL of a text just in case there's a direct download link
+available:
 
 ```js
 var md5 = 'ec1b68f07f01c7e4fb7a8c6af2431cd6';
@@ -211,8 +210,13 @@ libgen.utils.check.canDownload(md5,function(err,url){
     return console.error(err);
   }
   return console.log('Working link: ' + url);
-  });
+});
 ```
+
+Note that even if this method returns an error, the text may be
+available at one of
+[the mirrors that do not offer direct download links](http://megr.im/posts/libgen/
+"Scroll down past the first example").
 
 ### clean.forFields (synchronous)
 
@@ -239,7 +243,7 @@ var uniques = libgen.utils.clean.dups(array);
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Alex Dunn
+Copyright (c) 2014–2015 Alex Dunn
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
