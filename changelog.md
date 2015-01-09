@@ -1,3 +1,8 @@
+# 0.4.0
+
+- Add support for new `libgen.in` mirror
+- Available mirrors stored in `available_mirrors.js` for easy updating
+
 # 0.3.5
 
 - deactivate http://libgen.org mirror (see <https://github.com/grumble/libgen.js/issues/2>)
