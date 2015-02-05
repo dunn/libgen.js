@@ -3,6 +3,11 @@
 This is a wrapper for the [Library Genesis](http://gen.lib.rus.ec) API,
 with search built on top of it.
 
+## tested on
+
+- Node.js: 0.10.x
+- io.js: 1.1.0
+
 ## installation
 
 ```
