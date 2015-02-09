@@ -5,7 +5,7 @@ with search built on top of it.
 
 ## tested on
 
-- Node.js: 0.10.x
+- Node.js: 0.10.x, 0.12.x
 - io.js: 1.1.0
 
 ## installation
