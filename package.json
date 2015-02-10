@@ -19,7 +19,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/grumble/libgen.js.git"
+    "url": "https://github.com/dunn/libgen.js.git"
   },
   "dependencies": {
     "async": "0.9.x",
