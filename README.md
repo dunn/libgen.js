@@ -6,7 +6,7 @@ with search built on top of it.
 ## tested on
 
 - Node.js: 0.10.x, 0.12.x
-- io.js: 1.1.0–1.3.0
+- io.js: 1.1.0–1.4.2
 
 ## installation
 
