@@ -3,6 +3,8 @@
 This is a wrapper for the [Library Genesis](http://gen.lib.rus.ec) API,
 with search built on top of it.
 
+[![Build Status](https://travis-ci.org/dunn/libgen.js.svg?branch=master)](https://travis-ci.org/dunn/libgen.js)
+
 ## tested on
 
 - Node.js: 0.10.x, 0.12.x
