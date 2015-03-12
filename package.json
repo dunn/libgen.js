@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "async": "0.9.x",
-    "request": "2.46.x"
+    "request": "2.53.x"
   },
   "devDependencies": {
     "mocha": "2.x.x"
