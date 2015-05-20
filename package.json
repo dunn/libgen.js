@@ -1,6 +1,6 @@
 {
   "name": "libgen",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "The Library Genesis API (and more) for Node and io.js",
   "main": "index.js",
   "scripts": {
