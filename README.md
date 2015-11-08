@@ -6,6 +6,11 @@ of it.
 
 [![Build Status](https://travis-ci.org/dunn/libgen.js.svg?branch=master)](https://travis-ci.org/dunn/libgen.js)
 
+**Attention:**  Direct download URLs and mirrors other than
+`http://gen.lib.rus.ec` are currently unavailable in many countries.
+Library Genesis (with which I am not affiliated) is asking for
+donations to support maintenance costs and to establish new mirrors: <http://gen.lib.rus.ec/donate/>.
+
 ## installation
 
 ```
@@ -14,7 +19,7 @@ npm install [--save] libgen
 
 ## first, a warning
 
-The Library Genesis maintaners very kindly made a public API that
+The Library Genesis maintainers very kindly made a public API that
 doesn't require an API key to use, so don't abuse it or they might
 change that.
 
