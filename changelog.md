@@ -1,3 +1,16 @@
+# 0.4.3
+
+- replace libgen.in with libgen.io
+
+# 0.4.2
+
+- update request dependency
+
+# 0.4.1
+
+- better error handling in `lib/mirror.js`
+- avoid 414 errors from over-long URLs in `lib/random.js`
+
 # 0.4.0
 
 - Add support for new `libgen.in` mirror

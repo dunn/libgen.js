@@ -30,7 +30,7 @@ good as well.
 ## usage: choosing a mirror
 
 This method tests the mirrors in `available_mirrors.js` (currently
-`http://libgen.in` and `http://gen.lib.rus.ec`) and returns the one
+`http://libgen.io` and `http://gen.lib.rus.ec`) and returns the one
 that is fastest.
 
 ```js
