@@ -1,3 +1,7 @@
+# 0.4.4
+
+- update request and async dependencies; loosen version specifications
+
 # 0.4.3
 
 - replace libgen.in with libgen.io

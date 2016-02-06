@@ -19,8 +19,8 @@
     "url": "https://github.com/dunn/libgen.js.git"
   },
   "dependencies": {
-    "async": "0.9.x",
-    "request": "2.55.x"
+    "async": "1.x.x",
+    "request": "2.x.x"
   },
   "devDependencies": {
     "mocha": "2.x.x"
