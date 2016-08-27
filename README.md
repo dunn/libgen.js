@@ -93,8 +93,8 @@ libgen.search(options,function(err,data){
              options.query + '" books');
   while (n--){
     console.log('***********');
-    console.log('Title: ' + data[n].Title);
-    console.log('Author: ' + data[n].Author);
+    console.log('Title: ' + data[n].title);
+    console.log('Author: ' + data[n].author);
     console.log('Download: ' +
                 'http://gen.lib.rus.ec/book/index.php?md5=' +
                 data[n].md5.toLowerCase());
@@ -126,8 +126,8 @@ libgen.latest.text('http://gen.lib.rus.ec',function(err,text){
   if (err) return console.error(err);
   console.log('Last text uploaded to Library Genesis');
   console.log('***********');
-  console.log('Title: ' + text.Title);
-  console.log('Author: ' + text.Author);
+  console.log('Title: ' + text.title);
+  console.log('Author: ' + text.author);
   console.log('Download: ' +
               'http://gen.lib.rus.ec/book/index.php?md5=' +
               text.md5.toLowerCase());
@@ -160,9 +160,8 @@ Put the options in an object:
 var options = {
   mirror: 'http://gen.lib.rus.ec',
   count: 5,
-  fields: ['Title',
-           { Language: 'English' }
-          ]
+  fields: [ 'title',
+            { language: 'English' } ]
 };
 ```
 
