@@ -1,15 +1,14 @@
+[![Build Status](https://travis-ci.org/dunn/libgen.js.svg?branch=master)](https://travis-ci.org/dunn/libgen.js)
+
 # `libgen`
 
 This is a Node/io.js wrapper for the
 [Library Genesis](http://gen.lib.rus.ec) API, with search built on top
 of it.
 
-[![Build Status](https://travis-ci.org/dunn/libgen.js.svg?branch=master)](https://travis-ci.org/dunn/libgen.js)
-
-**Attention:**  Direct download URLs and mirrors other than
-`http://gen.lib.rus.ec` are currently unavailable in many countries.
-Library Genesis (with which I am not affiliated) is asking for
-donations to support maintenance costs and to establish new mirrors: <http://gen.lib.rus.ec/donate/>.
+**Reminder:** Library Genesis (with which I am not affiliated) is
+asking for donations to support maintenance costs and to establish new
+mirrors: <http://gen.lib.rus.ec/donate/>.
 
 ## installation
 
