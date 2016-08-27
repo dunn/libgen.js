@@ -48,20 +48,20 @@ describe('latest.text',function(){
 });
 
 describe('random.text',function(){
-  it('should return at least one JSON object',function(done){
+  it('should return one JSON object',function(done){
     var opts = {
       count: 'honk',
       mirror: mirror
     };
     random.text(opts,function(err,data){
       if (err) return done(err);
+      assert.equal(data.length, 1, 'did not return 1 text');
       return done(null,data);
     });
   });
-  it('should return exactly 30 English PDFs from 2000 with Titles', function(done){
+  it('should return an English PDF from 2000 with a Title', function(done){
     var opts = {
       mirror: mirror,
-      count: 30,
       fields: [
         'Title',
         { Language: 'English' },
@@ -71,20 +71,15 @@ describe('random.text',function(){
     };
     random.text(opts,function(err,data){
       if (err) return done(err);
-      var n = data.length;
-      // console.log('received ' + n + ' texts');
-      assert.equal(n,opts.count,
-                   'received wrong # of texts (' + n + ')');
-      while (n--){
-        assert.ok(check.hasField(data[n],'Title'),
-                 'text ' + n + ' is missing Title');
-        assert.ok(check.hasField(data[n],'Year', '2000'),
-                  'text ' + n + ' has Year ' + data[n].Year);
-        assert.ok(check.hasField(data[n],'Language','English'),
-                 'text ' + n + ' is in ' + data[n].Language);
-        assert.ok(check.hasField(data[n],'Extension','pdf'),
-                 'text ' + n + ' is a ' + data[n].Extension);
-      }
+      assert.equal(data.length, 1, 'did not receive 1 text');
+      assert.ok(check.hasField(data[0], 'Title'),
+                'text is missing Title');
+      assert.ok(check.hasField(data[0], 'Year', '2000'),
+                'text has Year ' + data[0].Year);
+      assert.ok(check.hasField(data[0], 'Language', 'English'),
+                'text is in ' + data[0].Language);
+      assert.ok(check.hasField(data[0], 'Extension', 'pdf'),
+                'text is a ' + data[0].Extension);
       return done();
     });
   });
