@@ -59,27 +59,24 @@ describe('random.text',function(){
       return done(null,data);
     });
   });
-  it('should return an English PDF from 2000 with a Title', function(done){
+  it('should return a PDF from 2000 with a Title', function(done){
     var opts = {
       mirror: mirror,
       fields: [
         'Title',
-        { Language: 'English' },
-        { Year: '2000',
-          Extension: 'pdf' }
+        { year: '2000',
+          extension: 'pdf' }
       ]
     };
     random.text(opts,function(err,data){
       if (err) return done(err);
       assert.equal(data.length, 1, 'did not receive 1 text');
-      assert.ok(check.hasField(data[0], 'Title'),
+      assert.ok(check.hasField(data[0], 'title'),
                 'text is missing Title');
-      assert.ok(check.hasField(data[0], 'Year', '2000'),
-                'text has Year ' + data[0].Year);
-      assert.ok(check.hasField(data[0], 'Language', 'English'),
-                'text is in ' + data[0].Language);
-      assert.ok(check.hasField(data[0], 'Extension', 'pdf'),
-                'text is a ' + data[0].Extension);
+      assert.ok(check.hasField(data[0], 'year', '2000'),
+                'text has Year ' + data[0].year);
+      assert.ok(check.hasField(data[0], 'extension', 'pdf'),
+                'text is a ' + data[0].extension);
       return done();
     });
   });

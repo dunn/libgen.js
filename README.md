@@ -98,7 +98,7 @@ libgen.search(options,function(err,data){
     console.log('Author: ' + data[n].Author);
     console.log('Download: ' +
                 'http://gen.lib.rus.ec/book/index.php?md5=' +
-                data[n].MD5.toLowerCase());
+                data[n].md5.toLowerCase());
   }
 });
 ```
@@ -131,7 +131,7 @@ libgen.latest.text('http://gen.lib.rus.ec',function(err,text){
   console.log('Author: ' + text.Author);
   console.log('Download: ' +
               'http://gen.lib.rus.ec/book/index.php?md5=' +
-              text.MD5.toLowerCase());
+              text.md5.toLowerCase());
 });
 ```
 
@@ -180,7 +180,7 @@ libgen.random.text(options,function(err,data){
     console.log('Author: ' + data[n].Author);
     console.log('Download: ' +
                 'http://gen.lib.rus.ec/book/index.php?md5=' +
-                data[n].MD5.toLowerCase());
+                data[n].md5.toLowerCase());
   }
 });
 ```

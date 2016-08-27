@@ -7,21 +7,21 @@ describe('clean',function(){
     describe('single text',function(){
       describe('strip if no Publisher (string and array)',function(){
         it('should remove the object and return nothing',function(){
-          var empty = !clean.forFields(single,'Publisher');
+          var empty = !clean.forFields(single,'publisher');
           assert.ok(empty);
         });
         it('should remove the object and return nothing',function(){
-          var empty = !clean.forFields(single,['Publisher']);
+          var empty = !clean.forFields(single,['publisher']);
           assert.ok(empty);
         });
       });
       describe('strip if no Title (string and array)',function(){
         it('should return the object',function(){
-          var json = clean.forFields(single,'Title');
+          var json = clean.forFields(single,'title');
           assert.equal(typeof json,'object');
         });
         it('should return the object',function(){
-          var json = clean.forFields(single,['Title']);
+          var json = clean.forFields(single,['title']);
           assert.equal(typeof json,'object');
         });
       });
@@ -29,27 +29,27 @@ describe('clean',function(){
     describe('multiple texts',function(){
       describe('strip if not Cleaned (string and array)',function(){
         it('should return nothing',function(){
-          var empty = !clean.forFields(multiple,'Cleaned');
+          var empty = !clean.forFields(multiple,'cleaned');
           assert.ok(empty);
         });
         it('should return nothing',function(){
-          var empty = !clean.forFields(multiple,['Cleaned']);
+          var empty = !clean.forFields(multiple,['cleaned']);
           assert.ok(empty);
         });
       });
       describe('strip if not Searchable (string and array)',function(){
         it('should return an array of two texts',function(){
-          var json = clean.forFields(multiple,'Searchable');
+          var json = clean.forFields(multiple,'searchable');
           assert.equal(json.length,2);
         });
         it('should return an array of two texts',function(){
-          var json = clean.forFields(multiple,['Searchable']);
+          var json = clean.forFields(multiple,['searchable']);
           assert.equal(json.length,2);
         });
       });
       describe('remove texts that are not Russian from 2002',function(){
         it('should return an array of two texts',function(){
-          var json = clean.forFields(multiple,{Language: 'Russian',Year: '2002'});
+          var json = clean.forFields(multiple, { language: 'Russian', year: '2002'});
           assert.equal(json.length,1);
         });
       });

@@ -15,11 +15,11 @@ describe('check.js',function(){
       assert.equal(c,25);
     });
     it('should return true',function(){
-      var yearField = check.hasField(single,'Year','1998');
+      var yearField = check.hasField(single,'year','1998');
       assert.ok(yearField);
     });
     it('should return false',function(){
-      var yearField = check.hasField(single,'Year','1990');
+      var yearField = check.hasField(single,'year','1990');
       assert.ok(!yearField);
     });
   });
