@@ -34,7 +34,8 @@ that is fastest.
 
 ```js
 libgen.mirror(function(err,urlString){
-  if (err) return console.error(err);
+  if (err)
+    return console.error(err);
   return console.log(urlString + ' is currently fastest');
 });
 ```
@@ -74,7 +75,7 @@ The search method has two required options, and a number of optional ones:
 Pass the options to the function as an object:
 
 ```js
-var options = {
+const options = {
   mirror: 'http://gen.lib.rus.ec',
   query: 'cats',
   count: 5,
@@ -86,9 +87,10 @@ var options = {
 Then do the thing:
 
 ```js
-libgen.search(options,function(err,data){
-  if (err) return console.error(err);
-  var n = data.length;
+libgen.search(options, (err, data) => {
+  if (err)
+    return console.error(err);
+  let n = data.length;
   console.log(n + ' most recently published "' +
              options.query + '" books');
   while (n--){
@@ -122,8 +124,9 @@ This method requires a URL string—one of the mirrors in
 `available_mirrors.js`
 
 ```js
-libgen.latest.text('http://gen.lib.rus.ec',function(err,text){
-  if (err) return console.error(err);
+libgen.latest.text('http://gen.lib.rus.ec', (err, text) => {
+  if (err)
+    return console.error(err);
   console.log('Last text uploaded to Library Genesis');
   console.log('***********');
   console.log('Title: ' + text.title);
@@ -157,7 +160,7 @@ This has two required options, and an optional third:
 Put the options in an object:
 
 ```js
-var options = {
+const options = {
   mirror: 'http://gen.lib.rus.ec',
   count: 5,
   fields: [ 'title',
@@ -168,14 +171,15 @@ var options = {
 Then pass the object to `libgen.random.text`:
 
 ```js
-libgen.random.text(options,function(err,data){
-  if (err) return(err);
-  var n = data.length;
+libgen.random.text(options, (err,data) => {
+  if (err)
+    return(err);
+  let n = data.length;
   console.log(n + ' random English-language texts with titles');
   while (n--){
     console.log('***********');
-    console.log('Title: ' + data[n].Title);
-    console.log('Author: ' + data[n].Author);
+    console.log('Title: ' + data[n].title);
+    console.log('Author: ' + data[n].author);
     console.log('Download: ' +
                 'http://gen.lib.rus.ec/book/index.php?md5=' +
                 data[n].md5.toLowerCase());
@@ -191,7 +195,7 @@ output.
 ### check.hasField (synchronous)
 
 ```js
-var isGood = libgen.utils.check.hasField(json,field[,value]);
+const isGood = libgen.utils.check.hasField(json,field[,value]);
 ```
 
 - **array**—A LibGen JSON object.
@@ -210,11 +214,10 @@ download URL of a text just in case there's a direct download link
 available:
 
 ```js
-var md5 = 'ec1b68f07f01c7e4fb7a8c6af2431cd6';
-libgen.utils.check.canDownload(md5,function(err,url){
-  if (err) {
+const md5 = 'ec1b68f07f01c7e4fb7a8c6af2431cd6';
+libgen.utils.check.canDownload(md5, (err, url) => {
+  if (err)
     return console.error(err);
-  }
   return console.log('Working link: ' + url);
 });
 ```
@@ -230,7 +233,7 @@ Given a LibGen JSON object or an array of objects, this method removes
 any that don't have the specified fields and/or field values:
 
 ```js
-var cleaned = libgen.utils.clean.forFields(json,fields);
+const cleaned = libgen.utils.clean.forFields(json,fields);
 ```
 
 Pass an array of strings and/or objects to `fields`, as in
@@ -242,7 +245,7 @@ Given an array of LibGen JSON objects, this method returns all unique
 elements in the array:
 
 ```js
-var uniques = libgen.utils.clean.dups(array);
+const uniques = libgen.utils.clean.dups(array);
 ```
 
 ## license
