@@ -1,3 +1,9 @@
+# HEAD
+
+- **semver-major:** change default count for `random.text` from 10 to 1
+- libgen has started returning JSON objects with lowercase keys;
+  update code and tests to match
+
 # 0.4.4
 
 - update request and async dependencies; loosen version specifications
