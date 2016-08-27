@@ -1,11 +1,12 @@
-var libgen = require('libgen');
-var opts = {
+const libgen = require('libgen');
+const opts = {
   count: 10,
   mirror: 'http://gen.lib.rus.ec'
 };
-libgen.random.text(opts,function(err,data){
-  if (err) return(err);
-  var n = data.length;
+libgen.random.text(opts, (err, data) => {
+  if (err)
+    return(err);
+  let n = data.length;
   console.log(n + ' random texts');
   while (n--){
     console.log('***********');

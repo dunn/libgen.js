@@ -1,16 +1,16 @@
-var libgen = require('libgen');
+const libgen = require('libgen');
 
-var options = {
+const options = {
   mirror: 'http://gen.lib.rus.ec',
   count: 5,
-  fields: ['Title',
-           { Language: 'English' }
-          ]
+  fields: [ 'title',
+            { language: 'English' } ]
 };
 
-libgen.random.text(options,function(err,data){
-  if (err) return console.error(err);
-  var n = data.length;
+libgen.random.text(options, (err, data) => {
+  if (err)
+    return console.error(err);
+  let n = data.length;
   console.log(n + ' random English-language texts with titles');
   while (n--){
     console.log('***********');
