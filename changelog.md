@@ -1,4 +1,4 @@
-# HEAD
+# 1.0.0
 
 - **semver-major:** use ES6 features requiring Node 4+
 
