@@ -35,7 +35,7 @@ This method tests the mirrors in `available_mirrors.js` (currently
 that is fastest.
 
 ```js
-libgen.mirror(function(err,urlString){
+libgen.mirror((err, urlString) => {
   if (err)
     return console.error(err);
   return console.log(urlString + ' is currently fastest');
