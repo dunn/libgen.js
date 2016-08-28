@@ -4,7 +4,7 @@
   "description": "The Library Genesis API (and more) for Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -t 120s test/**/"
+    "test": "./node_modules/.bin/mocha -t 100s test/**/"
   },
   "keywords": [
     "libgen",
