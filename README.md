@@ -6,6 +6,8 @@ This is a Node/io.js wrapper for the
 [Library Genesis](http://gen.lib.rus.ec) API, with search built on top
 of it.
 
+Requires Node.js 4 or higher.
+
 **Reminder:** Library Genesis (with which I am not affiliated) is
 asking for donations to support maintenance costs and to establish new
 mirrors: <http://gen.lib.rus.ec/donate/>.

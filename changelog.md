@@ -1,6 +1,9 @@
 # HEAD
 
+- **semver-major:** use ES6 features requiring Node 4+
+
 - **semver-major:** change default count for `random.text` from 10 to 1
+
 - libgen has started returning JSON objects with lowercase keys;
   update code and tests to match
 
