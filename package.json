@@ -1,7 +1,7 @@
 {
   "name": "libgen",
   "version": "1.0.0",
-  "description": "The Library Genesis API (and more) for Node and io.js",
+  "description": "The Library Genesis API (and more) for Node.js",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha -t 120s test/**/"

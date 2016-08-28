@@ -2,7 +2,7 @@
 
 # `libgen`
 
-This is a Node/io.js wrapper for the
+This is a Node.js wrapper for the
 [Library Genesis](http://gen.lib.rus.ec) API, with search built on top
 of it.
 
