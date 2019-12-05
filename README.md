@@ -1,5 +1,24 @@
 [![Build Status](https://travis-ci.org/dunn/libgen.js.svg?branch=master)](https://travis-ci.org/dunn/libgen.js)
 
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [`libgen`](#libgen)
+    - [installation](#installation)
+    - [first, a warning](#first-a-warning)
+    - [usage: choosing a mirror](#usage-choosing-a-mirror)
+    - [usage: searching](#usage-searching)
+    - [usage: latest upload](#usage-latest-upload)
+    - [usage: random texts](#usage-random-texts)
+    - [usage: utilities](#usage-utilities)
+        - [check.hasField (synchronous)](#checkhasfield-synchronous)
+        - [check.canDownload (asynchronous)](#checkcandownload-asynchronous)
+        - [clean.forFields (synchronous)](#cleanforfields-synchronous)
+        - [clean.dups (synchronous)](#cleandups-synchronous)
+- [other platforms](#other-platforms)
+
+<!-- markdown-toc end -->
+
 # `libgen`
 
 This is a Node.js wrapper for the
@@ -249,3 +268,7 @@ elements in the array:
 ```js
 const uniques = libgen.utils.clean.dups(array);
 ```
+
+# other platforms
+
+- **Ruby:** <https://github.com/Sag0Sag0/libgen_api/>
