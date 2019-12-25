@@ -1,26 +1,26 @@
-var assert = require('assert');
+const assert = require("assert").strict
 
-var check = require('../../lib/check.js');
-var single = require('../json/single.json');
+const hasField = require("../../lib/check.js")
+const single = require("../json/single.json")
 
-describe('check.js',function(){
-  describe('hasField()',function(){
-    it('should find 25 filled fields',function(){
-      var c = 0;
-      for (var key in single){
-        if (check.hasField(single,key)){
-          c++;
-        }
+describe("hasField", () => {
+  it("should find 25 filled fields", () => {
+    let c = 0
+    for (let key in single){
+      if (hasField(single, key)) {
+        c++
       }
-      assert.equal(c,25);
-    });
-    it('should return true',function(){
-      var yearField = check.hasField(single,'year','1998');
-      assert.ok(yearField);
-    });
-    it('should return false',function(){
-      var yearField = check.hasField(single,'year','1990');
-      assert.ok(!yearField);
-    });
-  });
-});
+    }
+    assert.equal(c, 25)
+  })
+
+  it("should return true", () => {
+    const yearField = hasField(single, "year", "1998")
+    assert.ok(yearField)
+  })
+
+  it("should return false", () => {
+    const yearField = hasField(single, "year", "1990")
+    assert.ok(!yearField)
+  })
+})

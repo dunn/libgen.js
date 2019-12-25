@@ -1,13 +1,17 @@
-const libgen = require('libgen');
+const libgen = require('../index.js');
 
-libgen.latest.text('http://gen.lib.rus.ec', (err, text) => {
-  if (err)
-    return console.error(err);
-  console.log('Last text uploaded to Library Genesis');
-  console.log('***********');
-  console.log('Title: ' + text.title);
-  console.log('Author: ' + text.author);
-  console.log('Download: ' +
-              'http://gen.lib.rus.ec/book/index.php?md5=' +
-              text.md5.toLowerCase());
-});
+(async () => {
+  try {
+    const text = await libgen.latest.text('http://libgen.is')
+    console.log('Last text uploaded to Library Genesis')
+    console.log('***********')
+    console.log('Title: ' + text.title)
+    console.log('Author: ' + text.author)
+    console.log('Download: ' +
+                'http://libgen.is/book/index.php?md5=' +
+                text.md5.toLowerCase())
+    return true
+  } catch(err) {
+      return console.dir(err)
+  }
+})();

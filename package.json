@@ -4,7 +4,7 @@
   "description": "The Library Genesis API (and more) for Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -t 100s test/**/"
+    "test": "./node_modules/.bin/mocha test/**/*.js"
   },
   "keywords": [
     "libgen",
@@ -19,10 +19,9 @@
     "url": "https://github.com/dunn/libgen.js.git"
   },
   "dependencies": {
-    "async": "1.x.x",
-    "request": "2.x.x"
+    "got": "^10.2.0"
   },
   "devDependencies": {
-    "mocha": "2.x.x"
+    "mocha": "6.2.x"
   }
 }

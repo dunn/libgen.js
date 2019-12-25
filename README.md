@@ -25,7 +25,7 @@ This is a Node.js wrapper for the
 [Library Genesis](http://gen.lib.rus.ec) API, with search built on top
 of it.
 
-Requires Node.js 4 or higher.
+Requires Node.js 6 or higher.
 
 **Reminder:** Library Genesis (with which I am not affiliated) is
 asking for donations to support maintenance costs and to establish new
@@ -34,7 +34,7 @@ mirrors: <http://gen.lib.rus.ec/donate/>.
 ## installation
 
 ```
-npm install [--save] libgen
+npm install libgen
 ```
 
 ## first, a warning
@@ -50,15 +50,12 @@ good as well.
 ## usage: choosing a mirror
 
 This method tests the mirrors in `available_mirrors.js` (currently
-`http://libgen.io` and `http://gen.lib.rus.ec`) and returns the one
+`http://libgen.is` and `http://gen.lib.rus.ec`) and returns the one
 that is fastest.
 
 ```js
-libgen.mirror((err, urlString) => {
-  if (err)
-    return console.error(err);
-  return console.log(urlString + ' is currently fastest');
-});
+const urlString = await libgen.mirror()
+console.log(`${urlString} is currently fastest`)
 ```
 
 ## usage: searching
@@ -102,42 +99,41 @@ const options = {
   count: 5,
   sort_by: 'year',
   reverse: true
-};
+}
 ```
 
 Then do the thing:
 
 ```js
-libgen.search(options, (err, data) => {
-  if (err)
-    return console.error(err);
-  let n = data.length;
-  console.log(n + ' most recently published "' +
-             options.query + '" books');
+try {
+  const data = await libgen.search(options)
+  let n = data.length
+  console.log(`${n} results for "${options.query}"`)
   while (n--){
-    console.log('***********');
-    console.log('Title: ' + data[n].title);
-    console.log('Author: ' + data[n].author);
+    console.log('');
+    console.log('Title: ' + data[n].title)
+    console.log('Author: ' + data[n].author)
     console.log('Download: ' +
                 'http://gen.lib.rus.ec/book/index.php?md5=' +
-                data[n].md5.toLowerCase());
+                data[n].md5.toLowerCase())
   }
-});
+} catch (err) {
+  console.error(err)
+}
 ```
 
 `libgen` returns the full JSON objects
-[provided by the API](http://megr.im/posts/libgen/ "A guide to the
+[provided by the API](http://garbage.world/posts/libgen/ "A guide to the
 Library Genesis API"), though many of the metadata fields will be
 empty for any given text.
 
-Search is not very fast, partly because the `search` method always
-makes at least two HTTP requests: at least one during the initial
-search (more than one if we need to work through multiple pages of
-results), then another where we send the IDs—scraped from the search
-results page—to the API.  We could get most of the metadata from the
-search page without then going to the API, but this way the behavior
-is consistent between `search` and the other methods; all return the
-same full JSON objects.
+Search is not very fast, partly because the `search` method always makes at
+least two HTTP requests: at least one during the initial search (more than one
+if we need to work through multiple pages of results), then another where we
+send the IDs—scraped from the search results page—to the API.  We could get most
+of the metadata from the search page without then going to the API, but this way
+the behavior is consistent between `search` and the other methods; all return
+the same full JSON objects.
 
 ## usage: latest upload
 
@@ -145,17 +141,20 @@ This method requires a URL string—one of the mirrors in
 `available_mirrors.js`
 
 ```js
-libgen.latest.text('http://gen.lib.rus.ec', (err, text) => {
-  if (err)
-    return console.error(err);
-  console.log('Last text uploaded to Library Genesis');
-  console.log('***********');
-  console.log('Title: ' + text.title);
-  console.log('Author: ' + text.author);
-  console.log('Download: ' +
-              'http://gen.lib.rus.ec/book/index.php?md5=' +
-              text.md5.toLowerCase());
-});
+(async () => {
+  try {
+    const text = await libgen.latest.text('http://libgen.is')
+    console.log('Last text uploaded to Library Genesis')
+    console.log('Title: ' + text.title)
+    console.log('Author: ' + text.author)
+    console.log('Download: ' +
+                'http://libgen.is/book/index.php?md5=' +
+                text.md5.toLowerCase())
+    return true
+  } catch(err) {
+      return console.dir(err)
+  }
+})();
 ```
 
 You can also do `libgen.latest.id` in the same style—that just returns
@@ -178,34 +177,38 @@ This has two required options, and an optional third:
   that requests that have multiple required fields will take
   exponentially more time to complete.
 
-Put the options in an object:
+Put the options in an object, and pass it to `libgen.random.text`:
 
 ```js
-const options = {
-  mirror: 'http://gen.lib.rus.ec',
-  count: 5,
-  fields: [ 'title',
-            { language: 'English' } ]
-};
-```
-
-Then pass the object to `libgen.random.text`:
-
-```js
-libgen.random.text(options, (err,data) => {
-  if (err)
-    return(err);
-  let n = data.length;
-  console.log(n + ' random English-language texts with titles');
-  while (n--){
-    console.log('***********');
-    console.log('Title: ' + data[n].title);
-    console.log('Author: ' + data[n].author);
-    console.log('Download: ' +
-                'http://gen.lib.rus.ec/book/index.php?md5=' +
-                data[n].md5.toLowerCase());
+(async () => {
+  const options = {
+    mirror: "http://libgen.is",
+    count: 5,
+    fields: [
+      "Title",
+      { year: "2000",
+        extension: "pdf" }
+    ]
   }
-});
+
+  try {
+    const data = await libgen.random.text(options)
+    let n = data.length
+    console.log(n + " random PDFs from 2000 with titles")
+    while (n--) {
+      console.log("")
+      console.log("Title: " + data[n].title)
+      console.log("Author: " + data[n].author)
+      console.log("Year: " + data[n].year)
+      console.log("Download: " +
+                  "http://gen.lib.rus.ec/book/index.php?md5=" +
+                  data[n].md5.toLowerCase())
+    }
+    return true
+  } catch (err) {
+    return console.error(err)
+  }
+})();
 ```
 
 ## usage: utilities
@@ -235,17 +238,18 @@ download URL of a text just in case there's a direct download link
 available:
 
 ```js
-const md5 = 'ec1b68f07f01c7e4fb7a8c6af2431cd6';
-libgen.utils.check.canDownload(md5, (err, url) => {
-  if (err)
-    return console.error(err);
-  return console.log('Working link: ' + url);
-});
+const md5 = 'ec1b68f07f01c7e4fb7a8c6af2431cd6'
+try {
+  const url = await libgen.utils.check.canDownload(md5)
+  console.log('Working link: ' + url)
+} catch (err) {
+  console.error(err)
+}
 ```
 
 Note that even if this method returns an error, the text may be
 available at one of
-[the mirrors that do not offer direct download links](http://megr.im/posts/libgen/
+[the mirrors that do not offer direct download links](http://garbage.world/posts/libgen/
 "Scroll down past the first example").
 
 ### clean.forFields (synchronous)

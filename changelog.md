@@ -1,3 +1,9 @@
+# 2.0.0
+
+- **semver-major:** use ES8 features requiring Node 6+
+
+- **semver-major:** use Promises instead of callbacks; see updated examples in `/examples`
+
 # 1.0.0
 
 - **semver-major:** use ES6 features requiring Node 4+
