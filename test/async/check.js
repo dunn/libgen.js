@@ -1,33 +1,31 @@
+const FSPersister = require("@pollyjs/persister-fs")
+const NodeHttpAdapter = require("@pollyjs/adapter-node-http")
+const path = require("path")
+const { Polly, setupMocha: setupPolly } = require("@pollyjs/core")
+Polly.register(NodeHttpAdapter);
+Polly.register(FSPersister);
+
 const assert = require("assert").strict
 const check = require("../../index.js").utils.check
 
-const goodMd5 = "c95589cd1b9dfbd919b3d1b6a5665673"
-const badMd5 = "8e69614e79fd09ccdc60honkhonk"
-const badJson = require("../json/404.json")
+const md5 = "c95589cd1b9dfbd919b3d1b6a5665673"
 
 describe("check.js", () => {
+  setupPolly({
+    adapters: ["node-http"],
+    persister: "fs",
+    persisterOptions: {
+      fs: {
+        recordingsDir: path.resolve(__dirname, "recordings")
+      }
+    },
+    recordFailedRequests: true
+  })
+
   describe("canDownload()", () => {
     it("should return a url string", async () => {
-      const response = await check.canDownload(goodMd5)
+      const response = await check.canDownload(md5)
       assert(response)
-    })
-
-    it("should return a 404", async () => {
-      try {
-        await check.canDownload(badMd5)
-        assert(false, `${badMd5} should return error`)
-      } catch (err) {
-        assert(true)
-      }
-    })
-
-    it("should return a 404", async () => {
-      try {
-        await check.canDownload(badJson)
-        assert(false, "Bad JSON should not return good response")
-      } catch (err) {
-        assert(true)
-      }
     })
   })
 })
