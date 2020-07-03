@@ -15,7 +15,7 @@ const search = require("../../lib/search.js")
 // get a working mirror and use that for the rest of the tests
 let mirror
 
-describe("mirrors.js", () => {
+describe("async queries", () => {
   setupPolly({
     adapters: ["node-http"],
     persister: "fs",

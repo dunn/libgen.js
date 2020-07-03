@@ -10,7 +10,7 @@ const check = require("../../index.js").utils.check
 
 const md5 = "c95589cd1b9dfbd919b3d1b6a5665673"
 
-describe("check.js", () => {
+describe("utils", () => {
   setupPolly({
     adapters: ["node-http"],
     persister: "fs",
