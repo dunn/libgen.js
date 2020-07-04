@@ -275,4 +275,10 @@ const uniques = libgen.utils.clean.dups(array);
 
 # other platforms
 
+## library
 - **Ruby:** <https://github.com/Sag0Sag0/libgen_api/>
+- **Python:** <https://github.com/mmarquezs/libgen-python-api>
+
+## cli
+- **Go:** <https://github.com/ciehanski/libgen-cli>
+- **Python:** <https://github.com/adolfosilva/libgen.py>
