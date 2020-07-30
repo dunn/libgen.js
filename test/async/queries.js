@@ -31,7 +31,7 @@ describe("async queries", () => {
     try {
       mirror = await getMirror()
 
-      if (!mirror){
+      if (!mirror) {
         assert(false, "getMirror() returned an empty string")
       }
       console.log("Using " + mirror);
@@ -65,7 +65,7 @@ describe("async queries", () => {
         const data = await latest.text(mirror)
         assert.ok(data)
       } catch (err) {
-        assert (false)
+        assert(false)
       }
     })
   })
@@ -90,8 +90,10 @@ describe("async queries", () => {
         mirror: mirror,
         fields: [
           "Title",
-          { year: "2000",
-            extension: "pdf" }
+          {
+            year: "2000",
+            extension: "pdf"
+          }
         ]
       }
 
@@ -137,6 +139,61 @@ describe("async queries", () => {
         const data = await search(options)
         assert.equal(data.length, 10)
       } catch (err) {
+        assert(false)
+      }
+    })
+
+    it("should return an array of 10 JSON objects with an offset of 10", async () => {
+      const options = {
+        mirror: mirror,
+        query: "math",
+        count: 10,
+        offset: 10
+      }
+
+      try {
+        const data = await search(options)
+        assert.equal(data.length, 10)
+      } catch (err) {
+        assert(false)
+      }
+    })
+
+    it("should contain 10 offset JSON objects that are in a basic search of 30", async () => {
+
+      const options_offset = {
+        mirror: mirror,
+        query: "math",
+        count: 10,
+        offset: 20
+      }
+
+      const options_basic = {
+        mirror: mirror,
+        query: "math",
+        count: 30
+      }
+
+      try {
+        const data_offset = await search(options_offset)
+        const data_basic = await search(options_basic)
+
+        const data_basic_offset = data_basic.slice(options_offset.offset)
+
+        const data_basic_ids = data_basic_offset.map((value) => {
+          return value.id
+        })
+
+        const data_offset_ids = data_offset.map((value) => {
+          return value.id
+        })
+
+
+
+        assert.deepStrictEqual(data_offset_ids, data_basic_ids)
+
+      } catch (err) {
+        console.log(err)
         assert(false)
       }
     })
