@@ -159,7 +159,7 @@ describe("async queries", () => {
       }
     })
 
-    it("should contain 10 offset JSON objects that are in a basic search of 30", async () => {
+    it("should contain 35 offset JSON objects that are in a basic search of 70", async () => {
 
       const options_offset = {
         mirror: mirror,
