@@ -164,14 +164,14 @@ describe("async queries", () => {
       const options_offset = {
         mirror: mirror,
         query: "math",
-        count: 10,
-        offset: 20
+        count: 35,
+        offset: 35
       }
 
       const options_basic = {
         mirror: mirror,
         query: "math",
-        count: 30
+        count: 70
       }
 
       try {
@@ -187,8 +187,6 @@ describe("async queries", () => {
         const data_offset_ids = data_offset.map((value) => {
           return value.id
         })
-
-
 
         assert.deepStrictEqual(data_offset_ids, data_basic_ids)
 
