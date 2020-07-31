@@ -110,7 +110,7 @@ describe("async queries", () => {
       }
     })
   })
-
+  
   describe("search.js", () => {
     it("should return an array of 30 JSON objects", async () => {
       const options = {
@@ -193,7 +193,6 @@ describe("async queries", () => {
         assert.deepStrictEqual(data_offset_ids, data_basic_ids)
 
       } catch (err) {
-        console.log(err)
         assert(false)
       }
     })
