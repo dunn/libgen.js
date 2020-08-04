@@ -65,7 +65,7 @@ The search method has two required options, and a number of optional ones:
 - **mirror**—One of the mirrors in `available_mirrors.js`
 - **query**—The string to search for.
 - **count** (optional)—The number of results to return; defaults to 10.
-- **offset** (optional)-The number of results to offset from start; defaults to 0.
+- **offset** (optional)—The number of results to offset from start; defaults to 0.
 - **search_in** (optional)—Restrict your search to one of the
   following fields:
     - `title`
