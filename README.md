@@ -16,6 +16,8 @@
         - [clean.forFields (synchronous)](#cleanforfields-synchronous)
         - [clean.dups (synchronous)](#cleandups-synchronous)
 - [other platforms](#other-platforms)
+    - [library](#library)
+    - [cli](#cli)
 
 <!-- markdown-toc end -->
 
