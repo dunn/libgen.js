@@ -1,3 +1,21 @@
+# current
+
+# 2.1.0
+
+- **semver-minor:** add `offet` option to search function
+
+- document clients for other platforms
+
+# 2.0.2
+
+- clean up tests
+
+- update dependencies
+
+# 2.0.1
+
+- update vulnerable dependencies
+
 # 2.0.0
 
 - **semver-major:** use ES8 features requiring Node 6+
