@@ -19,7 +19,7 @@
     "url": "https://github.com/dunn/libgen.js.git"
   },
   "dependencies": {
-    "got": "11.3.x"
+    "got": "11.8.x"
   },
   "devDependencies": {
     "@pollyjs/adapter-node-http": "3.0.x",
