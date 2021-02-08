@@ -22,7 +22,7 @@
     "got": "11.8.x"
   },
   "devDependencies": {
-    "@pollyjs/adapter-node-http": "3.0.x",
+    "@pollyjs/adapter-node-http": "5.1.x",
     "@pollyjs/core": "5.1.x",
     "@pollyjs/persister-fs": "3.0.x",
     "mocha": "^8.1.1"
