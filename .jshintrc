@@ -1,0 +1,7 @@
+{
+  "asi": true,
+  "browser": false,
+  "esversion": 8,
+  "node": true,
+  "quotmark": "double"
+}
