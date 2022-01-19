@@ -12,6 +12,8 @@ const md5 = "c95589cd1b9dfbd919b3d1b6a5665673"
 
 describe("utils", () => {
   setupPolly({
+    mode: process.env.VCR_MODE || 'replay',
+
     adapters: ["node-http"],
     persister: "fs",
     persisterOptions: {

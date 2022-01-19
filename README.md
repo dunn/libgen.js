@@ -276,6 +276,12 @@ elements in the array:
 const uniques = libgen.utils.clean.dups(array);
 ```
 
+## developing
+
+HTTP requests are mocked in the specs using
+[Polly](https://netflix.github.io/pollyjs/).  To force Polly to re-record HTTP
+interactions, run with `VCR_MODE=record npm test` (defaults to `replay`).
+
 # other platforms
 
 ## library

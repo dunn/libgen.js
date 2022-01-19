@@ -17,6 +17,8 @@ let mirror
 
 describe("async queries", () => {
   setupPolly({
+    mode: process.env.VCR_MODE || 'replay',
+
     adapters: ["node-http"],
     persister: "fs",
     persisterOptions: {
@@ -110,7 +112,7 @@ describe("async queries", () => {
       }
     })
   })
-  
+
   describe("search.js", () => {
     it("should return an array of 30 JSON objects", async () => {
       const options = {
